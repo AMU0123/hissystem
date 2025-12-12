@@ -27,7 +27,7 @@ public class PatientServiceTest {
 
     private Patient patient;
 
-    @BeforeEach
+    @BeforeEach//测试用例
     public void setUp() {
         patient = new Patient();
         patient.setPatientId(1);
