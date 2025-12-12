@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #303133;
+  background-color: #f5f7fa;
+}
+
+a {
+  text-decoration: none;
+  color: #409eff;
+}
+
+a:hover {
+  color: #66b1ff;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: #409eff;
+  color: white;
+}
+
+.btn-success {
+  background-color: #67c23a;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #f56c6c;
+  color: white;
+}
+
+.btn-warning {
+  background-color: #e6a23c;
+  color: white;
+}
+
+.btn-info {
+  background-color: #909399;
+  color: white;
+}
+
+input, select, textarea {
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #409eff;
+  box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.1);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #606266;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: white;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ebeef5;
+}
+
+.table th {
+  background-color: #f5f7fa;
+  font-weight: bold;
+  color: #303133;
+}
+
+.table tr:hover {
+  background-color: #f5f7fa;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #303133;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #909399;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.search-bar {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.search-bar input {
+  flex: 1;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}

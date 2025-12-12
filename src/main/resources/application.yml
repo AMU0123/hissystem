@@ -1,0 +1,37 @@
+# 应用配置
+spring:
+  application:
+    name: his_system
+  # 数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/his_system?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  # JSON配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+# MyBatis配置
+mybatis:
+  # 实体类包路径
+  type-aliases-package: com.his.entity
+  # Mapper XML文件路径
+  mapper-locations: classpath:mapper/*.xml
+  # 驼峰命名转换
+  configuration:
+    map-underscore-to-camel-case: true
+
+# 日志配置
+logging:
+  level:
+    com.his.mapper: debug
+    com.his: info
+
+# 服务器配置
+server:
+  port: 8081
+  servlet:
+    context-path: /his
+

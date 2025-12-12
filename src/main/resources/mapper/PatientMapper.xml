@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.his.mapper.PatientMapper">
+    <!-- 结果映射 -->
+    <resultMap id="PatientResultMap" type="com.his.entity.Patient">
+        <id property="patientId" column="patient_id" />
+        <result property="name" column="name" />
+        <result property="gender" column="gender" />
+        <result property="age" column="age" />
+        <result property="phone" column="phone" />
+        <result property="address" column="address" />
+        <result property="medicalHistory" column="medical_history" />
+        <result property="allergyHistory" column="allergy_history" />
+        <result property="createdAt" column="created_at" />
+    </resultMap>
+
+    <!-- 新增患者 -->
+    <insert id="insert" parameterType="com.his.entity.Patient" useGeneratedKeys="true" keyProperty="patientId">
+        INSERT INTO patients (
+            name,
+            gender,
+            age,
+            phone,
+            address,
+            medical_history,
+            allergy_history,
+            created_at
+        ) VALUES (
+            #{name},
+            #{gender},
+            #{age},
+            #{phone},
+            #{address},
+            #{medicalHistory},
+            #{allergyHistory},
+            NOW()
+        )
+    </insert>
+
+    <!-- 根据ID删除患者 -->
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE FROM patients WHERE patient_id = #{patientId}
+    </delete>
+
+    <!-- 更新患者信息 -->
+    <update id="update" parameterType="com.his.entity.Patient">
+        UPDATE patients
+        <set>
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="gender != null and gender != ''">gender = #{gender},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="phone != null and phone != ''">phone = #{phone},</if>
+            <if test="address != null and address != ''">address = #{address},</if>
+            <if test="medicalHistory != null and medicalHistory != ''">medical_history = #{medicalHistory},</if>
+            <if test="allergyHistory != null and allergyHistory != ''">allergy_history = #{allergyHistory},</if>
+        </set>
+        WHERE patient_id = #{patientId}
+    </update>
+
+    <!-- 根据ID查询患者 -->
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="PatientResultMap">
+        SELECT * FROM patients WHERE patient_id = #{patientId}
+    </select>
+
+    <!-- 查询所有患者 -->
+    <select id="selectAll" resultMap="PatientResultMap">
+        SELECT * FROM patients ORDER BY patient_id DESC
+    </select>
+
+    <!-- 根据姓名或电话模糊查询患者 -->
+    <select id="selectByKeyword" parameterType="java.lang.String" resultMap="PatientResultMap">
+        SELECT * FROM patients
+        WHERE name LIKE CONCAT('%', #{keyword}, '%')
+           OR phone LIKE CONCAT('%', #{keyword}, '%')
+        ORDER BY patient_id DESC
+    </select>
+</mapper>
